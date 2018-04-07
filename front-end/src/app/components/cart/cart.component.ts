@@ -15,40 +15,12 @@ export class CartComponent implements OnInit {
   }
   cart_data;
   ngOnInit() {
-
+    this.cart_data=this.cart.getCartData();
+  }
+  clearCart(){
+    this.cart.clearCart();
   }
 
-  openDialog(): void {
-    let dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
-      height: '400px',
-      width: '600px',
-      position: {
-        left:'400px',
-        top: '400px'
-      },
-      //data: { name: this.name, animal: this.animal }
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      //this.animal = result;
-    });
-  }
 
 }
 
-@Component({
-  selector: 'confirm-dialog',
-  templateUrl: 'confirm.dialog.html',
-})
-export class DialogOverviewExampleDialog {
-
-  constructor(
-    public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: any) { }
-
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
-
-}

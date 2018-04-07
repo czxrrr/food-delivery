@@ -24,7 +24,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { LogoutComponent } from './components/logout/logout.component';
 
 
-import {CartComponent, DialogOverviewExampleDialog} from './components/cart/cart.component';
+import {CartComponent} from './components/cart/cart.component';
 import {CartService} from './services/cart.service';
 @NgModule({
   declarations: [
@@ -37,7 +37,6 @@ import {CartService} from './services/cart.service';
     RegisterComponent,
     LogoutComponent,
     CartComponent,
-    DialogOverviewExampleDialog
   ],
   imports: [
     FormsModule,

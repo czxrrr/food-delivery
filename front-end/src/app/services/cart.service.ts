@@ -16,6 +16,13 @@ export class CartService {
 
   cartData = [];
 
+  clearCart(){
+    this.cartData=[];
+    this.sendCartData();
+  }
+  getCartData(){
+    return this.cartData;
+  }
   getTotalPrice(){
     let totalPrice=0.0;
 
