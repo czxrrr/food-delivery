@@ -15,6 +15,7 @@ export class RegisterComponent implements OnInit {
   warning="";
   login_res;
   user_login;
+  hide=true;
 
   ngOnInit() {
   }

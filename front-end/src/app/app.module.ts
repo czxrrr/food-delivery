@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule} from "@angular/common/http";
 import { CookieService} from 'ngx-cookie-service';
 import { routing} from './app.routes';
 import { AppComponent } from './app.component';
@@ -9,13 +9,13 @@ import { RestaurantListComponent } from './components/restaurant-list/restaurant
 import { DataService } from './services/data.service';
 import { RestaurantDetailComponent } from './components/restaurant-detail/restaurant-detail.component';
 import { AddProblemComponent } from './components/add-problem/add-problem.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule} from "@angular/forms";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MAT_DIALOG_DEFAULT_OPTIONS, MatButtonModule, MatCheckboxModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
-import {MatDialogModule} from '@angular/material/dialog';
+import {MatInputModule} from '@angular/material/input';
 
 
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
@@ -24,7 +24,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { LogoutComponent } from './components/logout/logout.component';
 
 
-import {CartComponent, DialogOverviewExampleDialog} from './components/cart/cart.component';
+import {CartComponent} from './components/cart/cart.component';
 import {CartService} from './services/cart.service';
 @NgModule({
   declarations: [
@@ -36,8 +36,7 @@ import {CartService} from './services/cart.service';
     LoginComponent,
     RegisterComponent,
     LogoutComponent,
-    CartComponent,
-    DialogOverviewExampleDialog
+    CartComponent
   ],
   imports: [
     FormsModule,
@@ -50,18 +49,14 @@ import {CartService} from './services/cart.service';
     MatSidenavModule,
     MatCardModule,
     MatIconModule,
-    MatDialogModule
+    MatInputModule
 
-  ],
-  entryComponents:[
-    DialogOverviewExampleDialog
   ],
   providers: [
     {
-      provide:'data',
+      provide:"data",
       useClass: DataService
     },
-    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}},
     CartService,
     CookieService],
   // put something in providers, it can be used every where
