@@ -10,7 +10,14 @@
     </mat-card>
   </div>
 
+  <div *ngIf="checkingOut">
+    address
+    phoneNumber
+  </div>
+  <div *ngIf="empty">
+    your cart is empty
+  </div>
 
-  <button style="margin-left: 15px" mat-raised-button color="primary" >Checkout</button>
+  <button style="margin-left: 15px" mat-raised-button color="primary" (click)="checkout()">Checkout</button>
   <button style="margin-left: 15px" mat-raised-button color="primary" (click)="clearCart()">Empty Cart</button>
 </div>
