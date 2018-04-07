@@ -11,12 +11,12 @@ import { RestaurantDetailComponent } from './components/restaurant-detail/restau
 import { AddProblemComponent } from './components/add-problem/add-problem.component';
 import {FormsModule} from "@angular/forms";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+import {MAT_DIALOG_DEFAULT_OPTIONS, MatButtonModule, MatCheckboxModule} from '@angular/material';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
-
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { LoginComponent } from './components/login/login.component';
@@ -24,7 +24,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { LogoutComponent } from './components/logout/logout.component';
 
 
-import {CartComponent} from './components/cart/cart.component';
+import {CartComponent, DialogOverviewExampleDialog} from './components/cart/cart.component';
 import {CartService} from './services/cart.service';
 @NgModule({
   declarations: [
@@ -36,7 +36,8 @@ import {CartService} from './services/cart.service';
     LoginComponent,
     RegisterComponent,
     LogoutComponent,
-    CartComponent
+    CartComponent,
+    DialogOverviewExampleDialog
   ],
   imports: [
     FormsModule,
@@ -49,7 +50,8 @@ import {CartService} from './services/cart.service';
     MatSidenavModule,
     MatCardModule,
     MatIconModule,
-    MatInputModule
+    MatInputModule,
+    MatDialogModule
 
   ],
   providers: [
