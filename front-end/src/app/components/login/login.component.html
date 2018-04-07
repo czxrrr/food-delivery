@@ -1,20 +1,38 @@
-<div>
-  <div>
-    <label>email</label>
-    <input #email (keyup)="onKey_email(email.value)" />
+<div class="login-container">
+  <!--<h2>Login for ordering your food!</h2>-->
+  <form class="login-form">
+    <mat-form-field class="input">
+      <input matInput (keyup)="onKey_email(email.value)" placeholder="Enter your Email"
+      required>
+
+      <!--<mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">-->
+        <!--please enter a valid email address-->
+      <!--</mat-error>-->
+      <!--<mat-error *ngIf="emailFormControl.hasError('required')">-->
+        <!--Email is <strong>required</strong>-->
+      <!--</mat-error>-->
+
+    </mat-form-field>
+
+    <mat-form-field class="input">
+      <input matInput (keyup)="onKey_password(passowrd.value)" placeholder="Enter Your Password"
+             [type]="hide ? 'password':'text'" required/>
+      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility':'visibility_off'}}</mat-icon>
+    </mat-form-field>
+
+  </form>
+
+
+  <div class="button-row">
+    <button mat-raised-button color="primary" (click)="login()">Login</button>
   </div>
 
-  <div>
-    <label>password</label>
-    <input #passowrd (keyup)="onKey_password(passowrd.value)" />
-  </div>
-
-
-  <button (click)="login()">Login</button>
   <div>
     <label>
       {{warning}}
     </label>
   </div>
+
 </div>
+
 
