@@ -7,17 +7,22 @@
       {{recipewithnumber.number}}
       <button class="round-button">+</button>
       <button class="round-button">x</button>
+      {{recipewithnumber.number * recipewithnumber.Recipe.price}}
     </mat-card>
   </div>
 
-  <div *ngIf="checkingOut">
-    address
-    phoneNumber
-  </div>
   <div *ngIf="empty">
     your cart is empty
   </div>
-
+  <div *ngIf="!empty">
+    Total price: {{total_price}}
+  </div>
   <button style="margin-left: 15px" mat-raised-button color="primary" (click)="checkout()">Checkout</button>
   <button style="margin-left: 15px" mat-raised-button color="primary" (click)="clearCart()">Empty Cart</button>
+</div>
+
+<div *ngIf="checkingOut">
+  address
+  phoneNumber
+  <button style="margin-left: 15px" mat-raised-button color="primary" (click)="confirm()">Confirm</button>
 </div>
