@@ -5,11 +5,17 @@ import { BehaviorSubject} from "rxjs/BehaviorSubject";
 import { Observable} from "rxjs/Observable";
 import 'rxjs/add/operator/toPromise';
 import {Recipe} from '../models/recipe.model';
+import {Subject} from 'rxjs/Subject';
 
 @Injectable()
 export class DataService {
 
+
   constructor(private http: HttpClient) { }
+
+  private user_loginSource= new Subject<string>();
+  user_login$ = this.user_loginSource.asObservable();
+  user_login = 'false';
   getRestaurants(): Observable<Restaurant[]>{
     return this.http.get<Restaurant[]>('http://localhost:3000/api/v1/restaurants');
   }
@@ -27,9 +33,10 @@ export class DataService {
     return this.http.post<any>(`http://localhost:3000/api/v1/auth/register`,{email:email, password: password},httpOptions)
   }
 
-  // getRecipes(id:String):Observable<Recipe[]>{
-  //   return this.http.get<Recipe[]>(`http://localhost:3000/api/v1/recipes/${id}`);
-  // }
+  setUserstatus(value){
+    this.user_login=value;
+    this.user_loginSource.next(this.user_login)
+  }
 
   private handleError(error:any): Promise<any> {
     console.log('An error occured', error);

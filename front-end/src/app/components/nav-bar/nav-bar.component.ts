@@ -1,20 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Injectable, OnInit} from '@angular/core';
 import {CookieService} from 'ngx-cookie-service';
 import { Location } from '@angular/common';
 import {Router} from '@angular/router';
+import {CartService} from '../../services/cart.service';
+import {DataService} from '../../services/data.service';
 
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.css']
 })
+@Injectable()
 export class NavBarComponent implements OnInit {
 
-  constructor(private cookie:CookieService, private router:Router) { }
+  constructor(private cookie:CookieService, private router:Router, private data:DataService) {
+    this.data.user_login$.subscribe(data => {
+      this.user_login=data;
+    });
+  }
   user_login='false';
   token;
   ngOnInit() {
     this.user_login=this.cookie.get('user_login');
+    this.data.setUserstatus(this.user_login);
     this.token=this.cookie.get('token');
   }
   logout(){
@@ -22,7 +30,7 @@ export class NavBarComponent implements OnInit {
       this.cookie.set('token',null);
       this.user_login=this.cookie.get('user_login');
       this.token=this.cookie.get('token');
-      this.ngOnInit();
+      this.data.setUserstatus('false');
       this.router.navigateByUrl('/logout');
   }
 

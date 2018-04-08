@@ -1,15 +1,17 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, Inject, Injectable, OnInit} from '@angular/core';
 import { Router } from '@angular/router'
 import {CookieService} from 'ngx-cookie-service';
 import {FormControl,Validators} from "@angular/forms";
+import {DataService} from '../../services/data.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+@Injectable()
 export class LoginComponent implements OnInit {
-  constructor(@Inject("data") private data, private router:Router, private cookie:CookieService) { }
+  constructor(private data:DataService, private router:Router, private cookie:CookieService) { }
   hide=true;
   email='';
   password='';
@@ -29,12 +31,14 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
   }
-  onKey_email(value){
-    this.email=value;
-  }
-  onKey_password(value){
-    this.password=value;
-  }
+  // onKey_email(value){
+  //   this.email=value;
+  //   console.log(value);
+  // }
+  // onKey_password(value){
+  //   this.password=value;
+  //   console.log(value);
+  // }
   login(){
     this.data.login(this.email,this.password).subscribe(
       data => {
@@ -43,6 +47,7 @@ export class LoginComponent implements OnInit {
         this.warning="";
         this.cookie.set('user_login','true');
         this.cookie.set('token',data.token);
+        this.data.setUserstatus('true');
         this.router.navigate(['']);
 
         error => {
