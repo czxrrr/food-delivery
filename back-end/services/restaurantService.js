@@ -9,6 +9,7 @@ var getRestaurants = function(){
   return new Promise((resolve, reject) => {
     Restaurant.find({}, function (err, restaurants){
       if (err){
+
         reject(err);
       }
       resolve(restaurants);
