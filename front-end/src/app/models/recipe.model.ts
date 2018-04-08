@@ -1,5 +1,5 @@
-export class Recipe{
-  id: number;
+export class Recipe {
+  pic: string;
   name: string;
   price: number;
 }
