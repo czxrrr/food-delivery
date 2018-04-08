@@ -33,6 +33,11 @@ export class DataService {
     return this.http.post<any>(`http://localhost:3000/api/v1/auth/register`,{email:email, password: password},httpOptions)
   }
 
+  confirm(auth,cart):Observable<any>{
+    var httpOptions;
+    return this.http.post<any>(`http://localhost:3000/api/v1/auth/register`,{auth:auth, cart: cart},httpOptions);
+  }
+
   setUserstatus(value){
     this.user_login=value;
     this.user_loginSource.next(this.user_login)

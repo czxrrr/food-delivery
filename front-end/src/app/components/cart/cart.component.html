@@ -3,10 +3,10 @@
   <div style="margin-bottom: 15px">
     <mat-card *ngFor="let recipewithnumber of cart_data">
       {{recipewithnumber.Recipe.name}}
-      <button class="round-button">-</button>
+      <button class="round-button" (click)="change(recipewithnumber.Recipe,-1)">-</button>
       {{recipewithnumber.number}}
-      <button class="round-button">+</button>
-      <button class="round-button">x</button>
+      <button class="round-button" (click)="change(recipewithnumber.Recipe,1)">+</button>
+      <button class="round-button" (click)="change(recipewithnumber.Recipe,-recipewithnumber.number)">x</button>
       {{recipewithnumber.number * recipewithnumber.Recipe.price}}
     </mat-card>
   </div>

@@ -23,12 +23,24 @@ export class CartService {
   getCartData(){
     return this.cartData;
   }
-  getTotalPrice(){
-    let totalPrice=0.0;
 
-    return totalPrice;
+  change(recipe,number){
+    for(let ele of this.cartData){
+      if (ele.Recipe._id===recipe._id){
+        ele.number = ele.number+number;
+        if (ele.number<0){
+          ele.number=0;
+        }
+      }
+    }
+    this.clearZero();
+    this.sendCartData();
   }
-
+  clearZero(){
+    console.log(this.cartData);
+    this.cartData=this.cartData.filter(obj => obj.number !== 0);
+    console.log(this.cartData);
+  }
   addRecipe(recipe){
     let existed=0;
     for(let ele of this.cartData){
@@ -41,7 +53,6 @@ export class CartService {
     if (existed ===0 ){
       this.cartData.push({Recipe:recipe,number:1});
     }
-    console.log(this.cartData);
     this.sendCartData();
   }
   sendCartData(){

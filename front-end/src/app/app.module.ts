@@ -8,7 +8,6 @@ import { RestaurantListComponent } from './components/restaurant-list/restaurant
 
 import { DataService } from './services/data.service';
 import { RestaurantDetailComponent } from './components/restaurant-detail/restaurant-detail.component';
-import { AddProblemComponent } from './components/add-problem/add-problem.component';
 import {FormsModule} from "@angular/forms";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MAT_DIALOG_DEFAULT_OPTIONS, MatButtonModule, MatCheckboxModule} from '@angular/material';
@@ -17,7 +16,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatDialogModule} from '@angular/material/dialog';
-
+import {MatToolbarModule} from '@angular/material/toolbar';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -26,17 +25,18 @@ import { LogoutComponent } from './components/logout/logout.component';
 
 import {CartComponent} from './components/cart/cart.component';
 import {CartService} from './services/cart.service';
+import { OrderComponent } from './components/order/order.component';
 @NgModule({
   declarations: [
     AppComponent,
     RestaurantListComponent,
     RestaurantDetailComponent,
-    AddProblemComponent,
     NavBarComponent,
     LoginComponent,
     RegisterComponent,
     LogoutComponent,
     CartComponent,
+    OrderComponent,
   ],
   imports: [
     FormsModule,
@@ -50,7 +50,8 @@ import {CartService} from './services/cart.service';
     MatCardModule,
     MatIconModule,
     MatInputModule,
-    MatDialogModule
+    MatDialogModule,
+    MatToolbarModule
 
   ],
   providers: [

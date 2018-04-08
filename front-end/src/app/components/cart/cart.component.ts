@@ -1,6 +1,8 @@
 import {Component, Inject, Injectable, OnInit} from '@angular/core';
 import {CartService} from '../../services/cart.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import {DataService} from '../../services/data.service';
+import {CookieService} from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-cart',
@@ -10,7 +12,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 @Injectable()
 export class CartComponent implements OnInit {
 
-  constructor(private cart:CartService, public dialog: MatDialog) {
+  constructor(private data:DataService,private cart:CartService, private cookie:CookieService) {
     cart.cart$.subscribe(cart_data => {
       this.cart_data=cart_data;
       this.total_price=0;
@@ -31,6 +33,7 @@ export class CartComponent implements OnInit {
   checkingOut=false;
   empty=true;
   total_price=0;
+  auth='';
   ngOnInit() {
     this.cart_data=this.cart.getCartData();
   }
@@ -46,8 +49,16 @@ export class CartComponent implements OnInit {
       this.empty=false;
       this.checkingOut=true;
     }
-
   }
+
+  change(recipe,number){
+    this.cart.change(recipe,number);
+  }
+  confirm(){
+    this.auth=this.cookie.get('auth');
+    this.data.confirm(this.auth,this.cart_data)
+  }
+
 
 }
 
