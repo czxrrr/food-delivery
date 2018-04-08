@@ -58,6 +58,7 @@ import {CartService} from './services/cart.service';
       provide:"data",
       useClass: DataService
     },
+    DataService,
     CartService,
     CookieService],
   // put something in providers, it can be used every where
