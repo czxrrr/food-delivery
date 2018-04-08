@@ -1,0 +1,14 @@
+.restaurant-details {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.restaurant-name {
+    font-size: xx-large;
+}
+.restaurant-type {
+    font-size: larger;
+}
+.restaurant-address {
+    margin-bottom: 0px;
+}

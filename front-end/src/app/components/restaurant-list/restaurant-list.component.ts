@@ -2,6 +2,7 @@ import {Component, Inject, OnInit} from '@angular/core';
 import { Restaurant} from '../../models/restaurant.model'
 import {subscriptionLogsToBeFn} from "rxjs/testing/TestScheduler";
 import {Subscription} from "rxjs/Subscription";
+import {MatCard} from "@angular/material";
 
 
 @Component({
