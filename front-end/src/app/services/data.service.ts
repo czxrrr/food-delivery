@@ -35,7 +35,7 @@ export class DataService {
 
   confirm(auth,cart):Observable<any>{
     var httpOptions;
-    return this.http.post<any>(`http://localhost:3000/api/v1/auth/register`,{auth:auth, cart: cart},httpOptions);
+    return this.http.post<any>(`http://localhost:3000/api/v1/orders/add`,{auth:auth, cart: cart},httpOptions);
   }
 
   setUserstatus(value){
@@ -44,7 +44,6 @@ export class DataService {
   }
 
   private handleError(error:any): Promise<any> {
-    console.log('An error occured', error);
     return Promise.reject(error.body || error);
   }
 

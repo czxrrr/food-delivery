@@ -17,7 +17,6 @@ export class CartComponent implements OnInit {
       this.cart_data=cart_data;
       this.total_price=0;
       for (let e of this.cart_data){
-        console.log(this.total_price);
         this.total_price= this.total_price+e.Recipe.price*e.number;
       }
       if (this.cart_data.length===0){

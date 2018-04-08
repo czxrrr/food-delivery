@@ -20,9 +20,7 @@ var getRestaurant = function(id){
   return new Promise((resolve, reject) => {
 
     Restaurant.findOne({_id:id}).populate('recipes').exec(function (err, restaurant){
-      console.log(restaurant.recipes);
       if (err){
-          console.log(err);
           reject(err);
       }
       resolve(restaurant);

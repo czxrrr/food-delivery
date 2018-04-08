@@ -32,7 +32,6 @@ router.post('/register', function (req, res) {
 });
 
 router.get('/me', function(req, res) {
-    console.log(req);
     var token = req.headers['authorization'];
     if (!token) return res.status(401).send({ auth: false, message: 'No token provided.' });
 
@@ -45,7 +44,6 @@ router.get('/me', function(req, res) {
 
 
 router.post('/login', function(req, res) {
-    console.log(req.body);
     User.findOne({ email: req.body.email }, function (err, user) {
         if (err) return res.status(500).send('Error on the server.');
         if (!user) return res.status(404).send('No user found.');

@@ -37,15 +37,12 @@ export class CartService {
     this.sendCartData();
   }
   clearZero(){
-    console.log(this.cartData);
     this.cartData=this.cartData.filter(obj => obj.number !== 0);
-    console.log(this.cartData);
   }
   addRecipe(recipe){
     let existed=0;
     for(let ele of this.cartData){
       if (ele.Recipe._id===recipe._id){
-        console.log(ele.Recipe, recipe);
         existed=1;
         ele.number = ele.number+1
       }
