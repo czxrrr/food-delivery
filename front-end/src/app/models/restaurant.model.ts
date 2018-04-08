@@ -6,4 +6,5 @@ export class Restaurant{
   address: string;
   recipes: Recipe;
   pic: string;
+  type: String;
 }
