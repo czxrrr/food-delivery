@@ -2,9 +2,8 @@ var express= require("express");
 var app = express();
 var restRouter = require("./routes/rest.js");
 var mongoose = require("mongoose");
+var jwt = require('jsonwebtoken');
 var config = require("./config.js");
-var server = require('http').Server(app);
-var io = require('socket.io')(server);
 
 mongoose.connect(config.path);
 
