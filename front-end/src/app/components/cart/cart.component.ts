@@ -3,6 +3,7 @@ import {CartService} from '../../services/cart.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import {DataService} from '../../services/data.service';
 import {CookieService} from 'ngx-cookie-service';
+import {Router, RouterModule} from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -12,7 +13,7 @@ import {CookieService} from 'ngx-cookie-service';
 @Injectable()
 export class CartComponent implements OnInit {
 
-  constructor(private data:DataService,private cart:CartService, private cookie:CookieService) {
+  constructor(private data:DataService,private cart:CartService, private router:Router) {
     cart.cart$.subscribe(cart_data => {
       this.cart_data=cart_data;
       this.total_price=0;
@@ -33,6 +34,9 @@ export class CartComponent implements OnInit {
   empty=true;
   total_price=0;
   token='';
+  address;
+  phone;
+  order;
   ngOnInit() {
     this.cart_data=this.cart.getCartData();
   }
@@ -54,7 +58,11 @@ export class CartComponent implements OnInit {
     this.cart.change(recipe,number);
   }
   confirm(){
-    this.data.add_order(this.cart_data);
+    this.data.add_order(this.cart_data,this.address,this.phone).subscribe(next =>{
+        this.order=next;
+        this.router.navigate(['orders']);
+    }
+    );
   }
 
 

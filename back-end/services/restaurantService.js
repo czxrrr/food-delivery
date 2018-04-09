@@ -51,11 +51,10 @@ var newOrder = function(userid,cart,number,total){
         console.log(number);
         Order.create({user:userid,cart:cart ,number:number, total:total},function(err, order){
             if (err){
-                console.log(err);
                 reject(err);
             }
             if (order){
-                console.log(order);
+
                 resolve(order);
             }
         });

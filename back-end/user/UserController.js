@@ -44,7 +44,6 @@ router.get('/me', function(req, res) {
 
 router.get('/myinfo', function(req, res) {
     var token = req.headers['authorization'];
-    console.log(token);
     if (!token) return res.status(401).send({ auth: false, message: 'No token provided.' });
 
     jwt.verify(token, config.secret, function(err, decoded) {

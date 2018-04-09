@@ -20,7 +20,7 @@ router.get("/restaurants/:id", function(req, res){
       .then(restaurant => res.json(restaurant));
 });
 
-router.get("/orders/", function(req, res){
+router.get("/orders", function(req, res){
     var token = req.headers['authorization'];
     if (!token) return res.status(401).send({ auth: false, message: 'No token provided.' });
 
@@ -32,7 +32,7 @@ router.get("/orders/", function(req, res){
     });
 });
 
-router.post("/new_order/", function(req, res){
+router.post("/new_order", function(req, res){
     var token = req.headers['authorization'];
     var userid= '';
     if (!token) return res.status(401).send({ auth: false, message: 'No token provided.' });
@@ -40,11 +40,10 @@ router.post("/new_order/", function(req, res){
         if (err) return res.status(500).send({ auth: false, message: 'Failed to authenticate token.' });
         //res.status(200).send(decoded.id);
         userid=decoded.id;
+
     });
-    console.log(req.body.number);
-    json_number=JSON.parse(req.body.number);
-    json_cart=JSON.parse(req.body.cart);
-    restaurantService.newOrder(userid,json_cart,json_number,req.body.total)
+
+    restaurantService.newOrder(userid,req.body.cart,req.body.number,req.body.total)
       .then(order => res.json(order));
 });
 

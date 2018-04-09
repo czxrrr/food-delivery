@@ -24,14 +24,13 @@
 <div *ngIf="checkingOut">
 
     <mat-form-field>
-        <input matInput name="delivery_address" [(ngModel)]="delivery_address"
-               placeholder="address" required>
+        <input matInput name="Address" [(ngModel)]="address" placeholder="address" required>
     </mat-form-field>
 
     <!--<div></div>-->
     <br>
     <mat-form-field>
-        <input matInput name="phone" [(ngModel)]="phone" placeholder="phone number" required>
+        <input matInput name="Phone" [(ngModel)]="phone" placeholder="phone number" required>
     </mat-form-field>
     <br>
     <button style="margin-left: 15px" mat-raised-button color="primary" (click)="confirm()">Confirm</button>

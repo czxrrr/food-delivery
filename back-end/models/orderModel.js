@@ -14,7 +14,8 @@ var OrderSchema = new mongoose.Schema(
         number:[Number],
         total:Number,
         phone:String,
-        address:String
+        address:String,
+        created_at: { type: Date, default: Date.now }
     }
 );
 

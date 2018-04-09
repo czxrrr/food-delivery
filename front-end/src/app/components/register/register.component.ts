@@ -37,13 +37,11 @@ export class RegisterComponent implements OnInit {
           this.router.navigateByUrl('');
         }
         else{
-          console.log(data);
           this.warning="Register Fail";
         }
 
       },
       error => {
-        console.log(error);
         this.warning="Register Fail";
       });
   }

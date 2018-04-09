@@ -33,11 +33,26 @@ export class DataService {
     var httpOptions;
     return this.http.post<any>(`http://localhost:3000/api/v1/auth/register`,{email:email, password: password},httpOptions)
   }
-
-  add_order(cart):Observable<any>{
+  getOrders(){
     var httpOptions;
     httpOptions={'headers':{'authorization':this.cookie.get('token')}};
-    return this.http.post<any>(`http://localhost:3000/api/v1/orders/add`,{cart: cart},httpOptions);
+    return this.http.get<any>(`http://localhost:3000/api/v1/orders`,httpOptions);
+  }
+
+  add_order(cart,address,phone):Observable<any>{
+    var httpOptions;
+    httpOptions={'headers':{'authorization':this.cookie.get('token')}};
+    let total=0;
+    let recipes=[];
+    let numbers=[];
+
+    for (let e of cart){
+      recipes.push(e.Recipe._id);
+      numbers.push(e.number);
+      total= total+e.Recipe.price*e.number;
+    }
+
+    return this.http.post<any>(`http://localhost:3000/api/v1/new_order`,{number:numbers, cart: recipes, total:total, address:address, phone:phone},httpOptions);
   }
 
   setUserstatus(value){
@@ -49,7 +64,6 @@ export class DataService {
     var httpOptions;
     httpOptions={'headers':{'authorization':this.cookie.get('token')}};
     if (this.user_login ==="true"){
-
       return this.http.get<any>(`http://localhost:3000/api/v1/auth/myinfo`,httpOptions);
     }
   }

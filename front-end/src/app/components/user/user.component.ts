@@ -15,7 +15,6 @@ export class UserComponent implements OnInit {
   user;
   ngOnInit() {
     this.data.getUserInfo().subscribe(next=> {
-      console.log('y');
       this.user=next;
     }, err => {
       console.log(err);
