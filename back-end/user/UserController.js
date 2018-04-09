@@ -38,7 +38,24 @@ router.get('/me', function(req, res) {
     jwt.verify(token, config.secret, function(err, decoded) {
         if (err) return res.status(500).send({ auth: false, message: 'Failed to authenticate token.' });
 
-        res.status(200).send(decoded);
+        res.status(200).send(decoded.id);
+    });
+});
+
+router.get('/myinfo', function(req, res) {
+    var token = req.headers['authorization'];
+    console.log(token);
+    if (!token) return res.status(401).send({ auth: false, message: 'No token provided.' });
+
+    jwt.verify(token, config.secret, function(err, decoded) {
+        if (err) return res.status(500).send({ auth: false, message: 'Failed to authenticate token.' });
+        User.findOne({"_id": decoded.id},{"email":1},function(err,user){
+            if (err) return res.status(500).send("There was a problem retrieving the information from the database.");
+            if (user) {
+                return res.status(200).send(user);
+            }
+        })
+        //res.status(200).send(decoded.id);
     });
 });
 

@@ -5,6 +5,7 @@ import { LoginComponent} from './components/login/login.component';
 import { RegisterComponent} from './components/register/register.component';
 import {LogoutComponent} from './components/logout/logout.component';
 import {OrderComponent} from './components/order/order.component';
+import {UserComponent} from './components/user/user.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,11 @@ const routes: Routes = [
   {
     path: "orders",
     component: OrderComponent,
+    pathMatch: "full"
+  },
+  {
+    path: "user",
+    component: UserComponent,
     pathMatch: "full"
   },
   {

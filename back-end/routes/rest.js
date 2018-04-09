@@ -14,5 +14,17 @@ router.get("/restaurants/:id", function(req, res){
       .then(restaurant => res.json(restaurant));
 });
 
+router.get("/orders/", function(req, res){
+    var token = req.headers['authorization'];
+    if (!token) return res.status(401).send({ auth: false, message: 'No token provided.' });
+
+    jwt.verify(token, config.secret, function(err, decoded) {
+        if (err) return res.status(500).send({ auth: false, message: 'Failed to authenticate token.' });
+        //res.status(200).send(decoded.id);
+        restaurantService.getOrders(decoded.id)
+            .then(orders => res.json(orders));
+    });
+
+});
 
 module.exports = router;

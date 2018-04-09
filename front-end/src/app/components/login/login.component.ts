@@ -31,14 +31,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
   }
-  // onKey_email(value){
-  //   this.email=value;
-  //   console.log(value);
-  // }
-  // onKey_password(value){
-  //   this.password=value;
-  //   console.log(value);
-  // }
+
   login(){
     this.data.login(this.email,this.password).subscribe(
       data => {

@@ -18,7 +18,8 @@
 
             <!--</div>-->
             <!--</div>-->
-            <h2>{{restaurant.name}}</h2>
+          <mat-toolbar>{{restaurant.name}}</mat-toolbar>
+          
             <mat-card *ngFor="let recipe of restaurant.recipes" (click)="this.add_to_cart(recipe)">
 
                 <div class="row">

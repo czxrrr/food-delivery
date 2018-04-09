@@ -32,7 +32,7 @@ export class CartComponent implements OnInit {
   checkingOut=false;
   empty=true;
   total_price=0;
-  auth='';
+  token='';
   ngOnInit() {
     this.cart_data=this.cart.getCartData();
   }
@@ -54,8 +54,7 @@ export class CartComponent implements OnInit {
     this.cart.change(recipe,number);
   }
   confirm(){
-    this.auth=this.cookie.get('auth');
-    this.data.confirm(this.auth,this.cart_data)
+    this.data.add_order(this.cart_data);
   }
 
 

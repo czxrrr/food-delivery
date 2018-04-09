@@ -26,6 +26,7 @@ import { LogoutComponent } from './components/logout/logout.component';
 import {CartComponent} from './components/cart/cart.component';
 import {CartService} from './services/cart.service';
 import { OrderComponent } from './components/order/order.component';
+import { UserComponent } from './components/user/user.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +38,7 @@ import { OrderComponent } from './components/order/order.component';
     LogoutComponent,
     CartComponent,
     OrderComponent,
+    UserComponent,
   ],
   imports: [
     FormsModule,
