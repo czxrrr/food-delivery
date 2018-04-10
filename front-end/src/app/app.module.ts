@@ -24,11 +24,13 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LogoutComponent } from './components/logout/logout.component';
 
-
 import {CartComponent} from './components/cart/cart.component';
 import {CartService} from './services/cart.service';
 import { OrderComponent } from './components/order/order.component';
 import { UserComponent } from './components/user/user.component';
+
+import {ReactiveFormsModule} from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,8 +59,8 @@ import { UserComponent } from './components/user/user.component';
     MatDialogModule,
     MatToolbarModule,
     MatChipsModule,
-    NgZorroAntdModule.forRoot()
-
+    NgZorroAntdModule.forRoot(),
+    ReactiveFormsModule
   ],
   providers: [
     {
