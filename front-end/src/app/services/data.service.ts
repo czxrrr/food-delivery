@@ -29,9 +29,9 @@ export class DataService {
     return this.http.post<any>(`http://localhost:3000/api/v1/auth/login`,{email:email, password: password},httpOptions)
   }
 
-  register(email,password): Observable<any>{
+  register(email,password,userName,phone): Observable<any>{
     var httpOptions;
-    return this.http.post<any>(`http://localhost:3000/api/v1/auth/register`,{email:email, password: password},httpOptions)
+    return this.http.post<any>(`http://localhost:3000/api/v1/auth/register`,{email:email, password: password,userName:userName, phone:phone},httpOptions)
   }
   getOrders(){
     var httpOptions;

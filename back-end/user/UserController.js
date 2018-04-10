@@ -20,7 +20,9 @@ router.post('/register', function (req, res) {
     });
     User.create({
         email : req.body.email,
-        password : hashedPassword
+        password : hashedPassword,
+        phone:req.body.phone,
+        userName:req.body.userName
     },
     function (err, user) {
         if (err) return res.status(500).send("There was a problem adding the information to the database.");
@@ -48,7 +50,7 @@ router.get('/myinfo', function(req, res) {
 
     jwt.verify(token, config.secret, function(err, decoded) {
         if (err) return res.status(500).send({ auth: false, message: 'Failed to authenticate token.' });
-        User.findOne({"_id": decoded.id},{"email":1},function(err,user){
+        User.findOne({"_id": decoded.id},{"email":1, "phone":1, "userName":1},function(err,user){
             if (err) return res.status(500).send("There was a problem retrieving the information from the database.");
             if (user) {
                 return res.status(200).send(user);

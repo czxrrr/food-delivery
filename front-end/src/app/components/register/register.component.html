@@ -7,8 +7,14 @@
     </mat-form-field>
 
     <mat-form-field class="input">
-      <input matInput name="email" [(ngModel)]="email" type="email" pattern="1@123.com" ng-pattern="/^1@123.com$/" placeholder="Email"
+      <input matInput name="email" [(ngModel)]="email" type="email" [formControl]="emailFormControl" placeholder="Email"
              required>
+      <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="emailFormControl.hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field class="input">
@@ -22,7 +28,9 @@
              [type]="hide ? 'password':'text'" required/>
       <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility':'visibility_off'}}</mat-icon>
     </mat-form-field>
-
+    <mat-error *ngIf="passwordIllegal()">
+      Two passwords are not the same
+    </mat-error>
     <mat-form-field>
       <span matPrefix> +1 &nbsp;</span>
       <input type="tel" matInput name="phone" [(ngModel)]="phone" placeholder="Your telephone">
