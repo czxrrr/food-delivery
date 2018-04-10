@@ -1,10 +1,8 @@
 <div>
     <mat-card *ngFor="let restaurant of restaurants" [routerLink]="['/restaurants/',restaurant._id]">
-        <div class="container">
             <div class="row">
                 <div class="col-md-3">
-                    <img src="{{restaurant.pic}}" alt="loading failure" width="156" height="125" hspace="80px"
-                         vspace="20px" margin-top="20px" margin-bottom="20px">
+                    <img src="{{restaurant.pic}}" style="margin-top: 30px;margin-bottom: 30px ;margin-left: 60px" alt="loading failure" width="160" height="125" >
 
                 </div>
 
@@ -15,10 +13,7 @@
                         <mat-card-content class="restaurant-address">{{restaurant.address}}</mat-card-content>
                     </div>
                 </div>
-
-
             </div>
-        </div>
     </mat-card>
 </div>
 

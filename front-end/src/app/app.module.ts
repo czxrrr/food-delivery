@@ -22,6 +22,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LogoutComponent } from './components/logout/logout.component';
 
+import { NgZorroAntdModule } from 'ng-zorro-antd';
 
 import {CartComponent} from './components/cart/cart.component';
 import {CartService} from './services/cart.service';
@@ -53,7 +54,8 @@ import { UserComponent } from './components/user/user.component';
     MatIconModule,
     MatInputModule,
     MatDialogModule,
-    MatToolbarModule
+    MatToolbarModule,
+    NgZorroAntdModule.forRoot()
 
   ],
   providers: [
