@@ -1,12 +1,12 @@
 <div class="login-container">
   <!--<h2>Register for ordering your food!</h2>-->
   <form class="register-form">
-    <!--<mat-form-field class="input">-->
-      <!--<input matInput name="userName" [(ngModel)]="userName" placeholder="Your Name"-->
-             <!--required>-->
-    <!--</mat-form-field>-->
+    <mat-form-field class="input">
+      <input matInput name="userName" [(ngModel)]="userName" placeholder="Your Name"
+             required>
+    </mat-form-field>
 
-    <mat-form-field style="margin-top: 50px"class="input">
+    <mat-form-field class="input">
       <input matInput name="email" [(ngModel)]="email" type="email" pattern="1@123.com" ng-pattern="/^1@123.com$/" placeholder="Email"
              required>
     </mat-form-field>
@@ -17,17 +17,17 @@
       <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility':'visibility_off'}}</mat-icon>
     </mat-form-field>
 
-    <!--<mat-form-field class="input">-->
-      <!--<input matInput name="password1" [(ngModel)]="password1" placeholder="Confirm Your Password"-->
-             <!--[type]="hide ? 'password':'text'" required/>-->
-      <!--<mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility':'visibility_off'}}</mat-icon>-->
-    <!--</mat-form-field>-->
+    <mat-form-field class="input">
+      <input matInput name="password1" [(ngModel)]="password1" placeholder="Confirm Your Password"
+             [type]="hide ? 'password':'text'" required/>
+      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility':'visibility_off'}}</mat-icon>
+    </mat-form-field>
 
-    <!--<mat-form-field>-->
-      <!--<span matPrefix> +1 &nbsp;</span>-->
-      <!--<input type="tel" matInput name="phone" [(ngModel)]="phone" placeholder="Your telephone">-->
-      <!--<mat-icon matSuffix> mode_edit</mat-icon>-->
-    <!--</mat-form-field>-->
+    <mat-form-field>
+      <span matPrefix> +1 &nbsp;</span>
+      <input type="tel" matInput name="phone" [(ngModel)]="phone" placeholder="Your telephone">
+      <mat-icon matSuffix> mode_edit</mat-icon>
+    </mat-form-field>
   </form>
 
 
