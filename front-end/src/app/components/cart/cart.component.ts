@@ -5,6 +5,7 @@ import {DataService} from '../../services/data.service';
 import {CookieService} from 'ngx-cookie-service';
 import {Router, RouterModule} from '@angular/router';
 
+
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',

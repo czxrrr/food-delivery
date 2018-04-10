@@ -1,40 +1,42 @@
 <div>
-    <mat-toolbar>Shopping Cart</mat-toolbar>
-    <div class="shop">
-        <mat-card *ngFor="let recipewithnumber of cart_data">
-            {{recipewithnumber.Recipe.name}}
-            <button class="round-button" (click)="change(recipewithnumber.Recipe,-1)">-</button>
-            {{recipewithnumber.number}}
-            <button class="round-button" (click)="change(recipewithnumber.Recipe,1)">+</button>
-            <button class="round-button" (click)="change(recipewithnumber.Recipe,-recipewithnumber.number)">x</button>
-            {{recipewithnumber.number * recipewithnumber.Recipe.price}}
-        </mat-card>
-    </div>
+  <mat-toolbar>Shopping Cart</mat-toolbar>
+  <div class="shop">
+    <mat-card *ngFor="let recipewithnumber of cart_data">
+      {{recipewithnumber.Recipe.name}}
+      <button mat-button color="primary" style="margin-left:130px;font-size:large;"
+              (click)="change(recipewithnumber.Recipe,-recipewithnumber.number)">X
+      </button>
+      <div style="margin-top: 10px;">
+        <button mat-mini-fab color="primary" (click)="change(recipewithnumber.Recipe,-1)">-</button>
+        {{recipewithnumber.number}}
+        <button mat-mini-fab color="primary" (click)="change(recipewithnumber.Recipe,1)">+</button>
+        <mat-chip style="margin-left:130px;font-size:x-large">prices:{{recipewithnumber.number * recipewithnumber.Recipe.price}}</mat-chip>
+      </div>
+    </mat-card>
+  </div>
 
-    <div class="empty" *ngIf="empty">
-        Your cart is empty
-    </div>
-    <div class="noempty" *ngIf="!empty">
-        Total price: {{total_price}}
-    </div>
-    <button style="margin-left: 90px" mat-raised-button color="primary" (click)="checkout()">Checkout</button>
-    <button style="margin-left: 40px" mat-raised-button color="primary" (click)="clearCart()">Empty Cart</button>
+  <div class="empty" *ngIf="empty">
+    Your cart is empty
+  </div>
+  <div class="noempty" *ngIf="!empty">
+    Total price: {{total_price}}
+  </div>
+  <button style="margin-left: 90px" mat-raised-button color="primary" (click)="checkout()">Checkout</button>
+  <button style="margin-left: 40px" mat-raised-button color="primary" (click)="clearCart()">Empty Cart</button>
 </div>
 
 <div class="checkout" *ngIf="checkingOut">
 
-    <mat-form-field>
-        <input matInput name="Address" [(ngModel)]="address" placeholder="address" required>
-    </mat-form-field>
-
-    <!--<div></div>-->
-    <br>
-    <mat-form-field>
-        <input matInput name="Phone" [(ngModel)]="phone" placeholder="phone number" required>
-    </mat-form-field>
-    <br>
-    <button style="margin-left: 50px" mat-raised-button color="primary" (click)="confirm()">Confirm</button>
+  <mat-form-field>
+    <input matInput name="Address" [(ngModel)]="address" placeholder="address" required>
+  </mat-form-field>
 
 
+  <br>
+  <mat-form-field>
+    <input matInput name="Phone" [(ngModel)]="phone" placeholder="phone number" required>
+  </mat-form-field>
+  <br>
+  <button style="margin-left: 50px" mat-raised-button color="primary" (click)="confirm()">Confirm</button>
 
 </div>

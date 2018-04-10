@@ -17,6 +17,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatChipsModule} from '@angular/material/chips';
+import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -53,7 +55,9 @@ import { UserComponent } from './components/user/user.component';
     MatIconModule,
     MatInputModule,
     MatDialogModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatChipsModule,
+    NgZorroAntdModule.forRoot()
 
   ],
   providers: [

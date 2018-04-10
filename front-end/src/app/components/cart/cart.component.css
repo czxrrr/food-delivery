@@ -5,18 +5,23 @@
 }
 
 .empty{
-  margin-left: 80px;
+  margin-left: 100px;
   margin-bottom: 40px;
+  margin-top: 20px;
   font-size: x-large;
 }
 
 .noempty{
   margin-bottom: 20px;
+  margin-top:20px;
   font-size: x-large;
   font-style: italic;
 }
 
+.second{
+  margin-left: 160px;
+}
+
 .shop{
-  margin-bottom: 30px;
   font-size: large;
 }
