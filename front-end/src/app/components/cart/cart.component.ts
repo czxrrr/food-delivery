@@ -59,6 +59,7 @@ export class CartComponent implements OnInit {
     this.cart.change(recipe,number);
   }
   confirm(){
+    console.log(123);
     this.data.add_order(this.cart_data,this.address,this.phone).subscribe(next =>{
         this.order=next;
         this.router.navigate(['orders']);
