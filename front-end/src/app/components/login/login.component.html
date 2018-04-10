@@ -1,8 +1,8 @@
 <div class="login-container">
   <!--<h2>Login for ordering your food!</h2>-->
   <form class="login-form">
-    <mat-form-field class="input">
-      <input matInput name="email" [(ngModel)]="email" placeholder="Enter your Email"
+    <mat-form-field style="margin-top: 50px"class="input">
+      <input matInput name="email" [(ngModel)]="email" placeholder="Email"
       required>
 
       <!--<mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">-->
@@ -15,7 +15,7 @@
     </mat-form-field>
 
     <mat-form-field class="input">
-      <input matInput name="password" [(ngModel)]="password" placeholder="Enter Your Password"
+      <input matInput name="password" [(ngModel)]="password" placeholder="Password"
              [type]="hide ? 'password':'text'" required/>
       <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility':'visibility_off'}}</mat-icon>
     </mat-form-field>

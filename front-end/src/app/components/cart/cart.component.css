@@ -1,0 +1,22 @@
+.checkout{
+  margin-left: 120px;
+  display: block;
+
+}
+
+.empty{
+  margin-left: 80px;
+  margin-bottom: 40px;
+  font-size: x-large;
+}
+
+.noempty{
+  margin-bottom: 20px;
+  font-size: x-large;
+  font-style: italic;
+}
+
+.shop{
+  margin-bottom: 30px;
+  font-size: large;
+}

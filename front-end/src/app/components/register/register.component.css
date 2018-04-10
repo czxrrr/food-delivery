@@ -9,9 +9,10 @@
 .register-form{
   min-width:150px;
   max-width:500px;
-  width:50%;
+  width:100%;
   display: block;
   margin:0px auto;
+
 
 }
 .input{

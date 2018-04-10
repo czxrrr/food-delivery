@@ -1,6 +1,6 @@
 <div>
     <mat-toolbar>Shopping Cart</mat-toolbar>
-    <div style="margin-bottom: 15px">
+    <div class="shop">
         <mat-card *ngFor="let recipewithnumber of cart_data">
             {{recipewithnumber.Recipe.name}}
             <button class="round-button" (click)="change(recipewithnumber.Recipe,-1)">-</button>
@@ -11,17 +11,17 @@
         </mat-card>
     </div>
 
-    <div *ngIf="empty">
-        your cart is empty
+    <div class="empty" *ngIf="empty">
+        Your cart is empty
     </div>
-    <div *ngIf="!empty">
+    <div class="noempty" *ngIf="!empty">
         Total price: {{total_price}}
     </div>
-    <button style="margin-left: 15px" mat-raised-button color="primary" (click)="checkout()">Checkout</button>
-    <button style="margin-left: 15px" mat-raised-button color="primary" (click)="clearCart()">Empty Cart</button>
+    <button style="margin-left: 90px" mat-raised-button color="primary" (click)="checkout()">Checkout</button>
+    <button style="margin-left: 40px" mat-raised-button color="primary" (click)="clearCart()">Empty Cart</button>
 </div>
 
-<div *ngIf="checkingOut">
+<div class="checkout" *ngIf="checkingOut">
 
     <mat-form-field>
         <input matInput name="Address" [(ngModel)]="address" placeholder="address" required>
@@ -33,7 +33,7 @@
         <input matInput name="Phone" [(ngModel)]="phone" placeholder="phone number" required>
     </mat-form-field>
     <br>
-    <button style="margin-left: 15px" mat-raised-button color="primary" (click)="confirm()">Confirm</button>
+    <button style="margin-left: 50px" mat-raised-button color="primary" (click)="confirm()">Confirm</button>
 
 
 
