@@ -1,17 +1,19 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, Inject, Injectable, OnInit} from '@angular/core';
 import {CookieService} from 'ngx-cookie-service';
 import {FormControl, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {passBoolean} from 'protractor/built/util';
+import {DataService} from '../../services/data.service';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
+@Injectable()
 export class RegisterComponent implements OnInit {
 
-  constructor(@Inject('data') private data, private cookie: CookieService, private router:Router) { }
+  constructor(private data:DataService, private cookie: CookieService, private router:Router) { }
   email="";
   password="";
   password1="";
@@ -43,7 +45,8 @@ export class RegisterComponent implements OnInit {
           this.warning="";
           this.cookie.set('user_login','true');
           this.cookie.set('token',data.token);
-          this.router.navigateByUrl('/user');
+          this.data.setUserstatus('true');
+          this.router.navigateByUrl('/');
         }
         else{
           this.warning="Register Fail";
