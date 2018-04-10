@@ -34,16 +34,17 @@
 
 <div class="checkout" *ngIf="checkingOut">
 
-  <mat-form-field>
-    <input matInput name="Address" [(ngModel)]="address" placeholder="address" required>
+  <mat-form-field style="margin-top: 20px;width:300px">
+    <input matInput name="Address" [(ngModel)]="address" placeholder="Address" required>
   </mat-form-field>
 
-
   <br>
-  <mat-form-field>
-    <input matInput name="Phone" [(ngModel)]="phone" placeholder="phone number" required>
+  <mat-form-field style="margin-top: 15px;width:300px">
+    <span matPrefix> +1 &nbsp;</span>
+    <input type="tel" matInput name="phone" [(ngModel)]="phone" placeholder="Telephone" required>
+    <mat-icon matSuffix> mode_edit</mat-icon>
   </mat-form-field>
   <br>
-  <button style="margin-left: 50px" mat-raised-button color="primary" (click)="confirm()">Confirm</button>
+  <button style="margin-left: 105px" mat-raised-button color="primary" (click)="confirm()">Confirm</button>
 
 </div>
