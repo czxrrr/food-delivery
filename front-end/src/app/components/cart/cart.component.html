@@ -3,14 +3,21 @@
   <div class="shop">
     <mat-card *ngFor="let recipewithnumber of cart_data">
       {{recipewithnumber.Recipe.name}}
-      <button mat-button color="primary" style="margin-left:130px;font-size:large;"
-              (click)="change(recipewithnumber.Recipe,-recipewithnumber.number)">X
+      <button nz-button nzSize="small" style="font-size:large;"
+              (click)="change(recipewithnumber.Recipe,-recipewithnumber.number)">
+        <i class="anticon anticon-close"></i>
       </button>
+
       <div style="margin-top: 10px;">
-        <button mat-mini-fab color="primary" (click)="change(recipewithnumber.Recipe,-1)">-</button>
+        <button nz-button [nzShape]="'circle'"  (click)="change(recipewithnumber.Recipe,-1)">
+          <i>-</i>
+        </button>
         {{recipewithnumber.number}}
-        <button mat-mini-fab color="primary" (click)="change(recipewithnumber.Recipe,1)">+</button>
-        <mat-chip style="margin-left:130px;font-size:x-large">prices:{{recipewithnumber.number * recipewithnumber.Recipe.price}}</mat-chip>
+        <button nz-button [nzShape]="'circle'"  (click)="change(recipewithnumber.Recipe,1)">
+          <i>+</i>
+        </button>
+        <mat-basic-chip style="font-size: x-large; margin-left: 45%;">${{recipewithnumber.number * recipewithnumber.Recipe.price}}</mat-basic-chip>
+
       </div>
     </mat-card>
   </div>
