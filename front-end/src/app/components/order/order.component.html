@@ -1,8 +1,17 @@
-<div>
-  <div *ngFor="let order of orders">
-    order Price:{{order.total}}
-    <div>
-      Time:{{order.created_at}}
+<div class="order">
+
+  <mat-card class="order1">
+    <div mat-card-avatar></div>
+    <mat-card-title>Order number:</mat-card-title>
+    <div *ngFor="let order of orders">
+      Order Price:{{order.total}}
+      <div>
+        Time:{{order.created_at}}
+      </div>
+      <button style="margin-left:310px" mat-raised-button color="primary">Get more detail</button>
     </div>
-  </div>
+  </mat-card>
+  <mat-sidenav class="detail" mode="side" position="end" opened>
+    <app-detail></app-detail>
+  </mat-sidenav>
 </div>

@@ -1,0 +1,19 @@
+.order{
+  display:flex;
+  position:absolute;
+
+  top: 0;
+
+  width:100%;
+}
+.order1{
+  width:600px;
+  margin-left: 100px;
+  margin-top:110px;
+
+}
+.detail{
+  width:400px;
+  margin-left: 50px;
+  margin-top:70px;
+}

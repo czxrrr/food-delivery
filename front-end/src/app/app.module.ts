@@ -15,7 +15,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
-import {MatDialogModule} from '@angular/material/dialog';
+// // import {MatDialogModule} from '@angular/material';
+// import {MdDialogModule} from '@angular/material';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatChipsModule} from '@angular/material/chips';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
@@ -30,6 +31,7 @@ import { OrderComponent } from './components/order/order.component';
 import { UserComponent } from './components/user/user.component';
 
 import {ReactiveFormsModule} from '@angular/forms';
+import { DetailComponent } from './components/detail/detail.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,7 @@ import {ReactiveFormsModule} from '@angular/forms';
     CartComponent,
     OrderComponent,
     UserComponent,
+    DetailComponent
   ],
   imports: [
     FormsModule,
@@ -56,7 +59,6 @@ import {ReactiveFormsModule} from '@angular/forms';
     MatCardModule,
     MatIconModule,
     MatInputModule,
-    MatDialogModule,
     MatToolbarModule,
     MatChipsModule,
     NgZorroAntdModule.forRoot(),
@@ -72,5 +74,6 @@ import {ReactiveFormsModule} from '@angular/forms';
     CookieService],
   // put something in providers, it can be used every where
   bootstrap: [AppComponent]
+
 })
 export class AppModule { }

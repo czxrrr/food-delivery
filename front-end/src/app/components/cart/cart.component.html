@@ -28,10 +28,14 @@
   <div class="noempty" *ngIf="!empty">
     Total price: {{total_price}}
   </div>
-  <button style="margin-left: 90px" mat-raised-button color="primary" (click)="checkout()">Checkout</button>
+
+
+  <button style="margin-left: 90px" mat-raised-button color="primary"
+          *ngIf="!empty" (click)="checkout()" >Checkout</button>
   <button style="margin-left: 40px" mat-raised-button color="primary" (click)="clearCart()">Empty Cart</button>
 </div>
 
+<
 <div class="checkout" *ngIf="checkingOut">
 
   <mat-form-field style="margin-top: 20px;width:300px">
