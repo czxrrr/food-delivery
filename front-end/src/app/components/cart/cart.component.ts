@@ -14,7 +14,7 @@ import {Router, RouterModule} from '@angular/router';
 @Injectable()
 export class CartComponent implements OnInit {
 
-  constructor(private data:DataService,private cart:CartService, private router:Router,private dialog:MatDialog) {
+  constructor(private data:DataService,private cart:CartService, private router:Router) {
     cart.cart$.subscribe(cart_data => {
       this.cart_data=cart_data;
       this.total_price=0;
