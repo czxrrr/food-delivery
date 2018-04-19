@@ -18,25 +18,25 @@ export class DataService {
   user_login$ = this.user_loginSource.asObservable();
   user_login = 'false';
   getRestaurants(): Observable<Restaurant[]>{
-    return this.http.get<Restaurant[]>('http://localhost:3000/api/v1/restaurants');
+    return this.http.get<Restaurant[]>('http://localhost:3001/api/v1/restaurants');
   }
   getRestaurant(id: String): Observable<Restaurant>{
-    return this.http.get<Restaurant>(`http://localhost:3000/api/v1/restaurants/${id}`);
+    return this.http.get<Restaurant>(`http://localhost:3001/api/v1/restaurants/${id}`);
   }
 
   login(email,password): Observable<any>{
     var httpOptions;
-    return this.http.post<any>(`http://localhost:3000/api/v1/auth/login`,{email:email, password: password},httpOptions)
+    return this.http.post<any>(`http://localhost:3001/api/v1/auth/login`,{email:email, password: password},httpOptions)
   }
 
   register(email,password,userName,phone): Observable<any>{
     var httpOptions;
-    return this.http.post<any>(`http://localhost:3000/api/v1/auth/register`,{email:email, password: password,userName:userName, phone:phone},httpOptions)
+    return this.http.post<any>(`http://localhost:3001/api/v1/auth/register`,{email:email, password: password,userName:userName, phone:phone},httpOptions)
   }
   getOrders(){
     var httpOptions;
     httpOptions={'headers':{'authorization':this.cookie.get('token')}};
-    return this.http.get<any>(`http://localhost:3000/api/v1/orders`,httpOptions);
+    return this.http.get<any>(`http://localhost:3001/api/v1/orders`,httpOptions);
   }
 
   add_order(cart,address,phone):Observable<any>{
@@ -52,7 +52,7 @@ export class DataService {
       total= total+e.Recipe.price*e.number;
     }
 
-    return this.http.post<any>(`http://localhost:3000/api/v1/new_order`,{number:numbers, cart: recipes, total:total, address:address, phone:phone},httpOptions);
+    return this.http.post<any>(`http://localhost:3001/api/v1/new_order`,{number:numbers, cart: recipes, total:total, address:address, phone:phone},httpOptions);
   }
 
   setUserstatus(value){
@@ -64,7 +64,7 @@ export class DataService {
     var httpOptions;
     httpOptions={'headers':{'authorization':this.cookie.get('token')}};
     if (this.user_login ==="true"){
-      return this.http.get<any>(`http://localhost:3000/api/v1/auth/myinfo`,httpOptions);
+      return this.http.get<any>(`http://localhost:3001/api/v1/auth/myinfo`,httpOptions);
     }
   }
   private handleError(error:any): Promise<any> {
