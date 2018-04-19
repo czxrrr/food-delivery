@@ -67,9 +67,9 @@ export class DataService {
       return this.http.get<any>(`http://localhost:3001/api/v1/auth/myinfo`,httpOptions);
     }
   }
-  private handleError(error:any): Promise<any> {
-    return Promise.reject(error.body || error);
-  }
+  // private handleError(error:any): Promise<any> {
+  //   return Promise.reject(error.body || error);
+  // }
 
 }
 
