@@ -28,7 +28,10 @@ router.get("/orders", function(req, res){
         if (err) return res.status(500).send({ auth: false, message: 'Failed to authenticate token.' });
         //res.status(200).send(decoded.id);
         restaurantService.getOrders(decoded.id)
-            .then(orders => res.json(orders));
+            .then(orders => {
+                res.json(orders);
+                //console.log(orders);
+        });
     });
 });
 
@@ -40,10 +43,9 @@ router.post("/new_order", function(req, res){
         if (err) return res.status(500).send({ auth: false, message: 'Failed to authenticate token.' });
         //res.status(200).send(decoded.id);
         userid=decoded.id;
-
     });
 
-    restaurantService.newOrder(userid,req.body.cart,req.body.number,req.body.total)
+    restaurantService.newOrder(userid,req.body.cart,req.body.number,req.body.total,req.body.address,req.body.phone)
       .then(order => res.json(order));
 });
 

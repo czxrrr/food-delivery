@@ -1,17 +1,24 @@
 <div class="order">
-
-  <mat-card class="order1">
-    <div mat-card-avatar></div>
-    <mat-card-title>Order number:</mat-card-title>
-    <div *ngFor="let order of orders">
+  <mat-card *ngFor="let order of orders" class="order1">
+    <!--<div mat-card-avatar ></div>-->
+    <mat-card-title>Order ID: {{order._id}}</mat-card-title>
+    <div >
       Order Price:{{order.total}}
       <div>
         Time:{{order.created_at}}
       </div>
-      <button style="margin-left:310px" mat-raised-button color="primary">Get more detail</button>
+      <div>
+        Phone:{{order.phone}}
+      </div>
+      <div>
+        Address:{{order.address}}
+      </div>
+      <!--<button style="margin-left:310px" mat-raised-button color="primary">Get more detail</button>-->
     </div>
   </mat-card>
-  <mat-sidenav class="detail" mode="side" position="end" opened>
+  <mat-sidenav class="detail" mode="side" position="end">
     <app-detail></app-detail>
   </mat-sidenav>
+
+
 </div>

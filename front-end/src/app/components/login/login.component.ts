@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['']);
 
         error => {
-          console.log(error);
+          //console.log(error);
           this.cookie.set('user_login', 'false');
           this.warning = "Please input correct email and password";
         }

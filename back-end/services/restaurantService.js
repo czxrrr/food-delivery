@@ -46,10 +46,10 @@ var getOrders = function(userid){
   });
 };
 
-var newOrder = function(userid,cart,number,total){
+var newOrder = function(userid,cart,number,total,address,phone){
     return new Promise((resolve, reject) => {
-        console.log(number);
-        Order.create({user:userid,cart:cart ,number:number, total:total},function(err, order){
+        //console.log(number);
+        Order.create({user:userid,cart:cart ,number:number, total:total, address: address, phone:phone},function(err, order){
             if (err){
                 reject(err);
             }

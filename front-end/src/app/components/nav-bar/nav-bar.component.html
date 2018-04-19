@@ -9,8 +9,8 @@
       <li class="nav-item active">
         <button mat-button  routerLink="/">Home</button>
       </li>
-      <li class="nav-item active">
-        <button mat-button  routerLink="/orders">Orders</button>
+      <li class="nav-item active" *ngIf="(user_login ==='true')">
+        <button mat-button routerLink="/orders">Orders</button>
       </li>
 
     </ul>

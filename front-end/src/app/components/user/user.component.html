@@ -1,6 +1,17 @@
 <div *ngIf="user">
-  My email: {{user.email}}
-  My name: {{user.name}}
-  Ny phone: {{user.phone}}
+  <table class="user_table">
+    <tr>
+      <th>Email</th>
+      <th>{{user.email}}</th>
+    </tr>
+    <tr>
+      <th>Name</th>
+      <th>{{user.userName}}</th>
+    </tr>
+    <tr>
+      <th>Phone</th>
+      <th>{{user.phone}}</th>
+    </tr>
+  </table>
 </div>
 
