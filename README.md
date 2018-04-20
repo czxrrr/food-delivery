@@ -1,11 +1,12 @@
-# swsgfweds
+# Food delevery website
 
 ### For back-end
+please install nodemon first.
 ```
 cd back-end
 npm install
 (you have to create a config.js which contains the mongodb conenction path and private key for jwt）
-sudo nodemon server.js
+nodemon server.js
 (to start socketio on port 80, sudo is required)
 ```
 

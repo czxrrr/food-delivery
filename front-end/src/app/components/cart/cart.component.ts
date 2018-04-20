@@ -65,6 +65,7 @@ export class CartComponent implements OnInit {
         this.router.navigate(['orders']);
     }
     );
+    this.clearCart()
   }
 
 
