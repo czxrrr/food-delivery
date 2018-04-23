@@ -29,6 +29,9 @@ export class CartComponent implements OnInit {
         this.empty=false;
       }
     });
+    data.user_login$.subscribe(next => {
+      this.login=next;
+    });
   }
   cart_data;
   checkingOut=false;
@@ -38,6 +41,7 @@ export class CartComponent implements OnInit {
   address;
   phone;
   order;
+  login='true';
 
   ngOnInit() {
     this.cart_data=this.cart.getCartData();
@@ -47,12 +51,14 @@ export class CartComponent implements OnInit {
   }
 
   checkout(){
-    if (this.cart_data.length===0){
-      this.empty=true;
-    }
-    else{
-      this.empty=false;
-      this.checkingOut=true;
+    if(this.login==='true'){
+      if (this.cart_data.length===0){
+        this.empty=true;
+      }
+      else{
+        this.empty=false;
+        this.checkingOut=true;
+      }
     }
   }
 
