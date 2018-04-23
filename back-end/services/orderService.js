@@ -1,65 +1,44 @@
 var mongoose = require('mongoose');
 RestaurantSchema = require("../models/restaurantModel");
-RecipeSchema = require("../models/recipeModel");
-OrderSchema = require("../models/orderModel");
-
 Restaurant = mongoose.model("Restaurant",RestaurantSchema);
+
+RecipeSchema = require("../models/recipeModel");
 Recipe = mongoose.model("Recipe",RecipeSchema);
-Order = mongoose.model("Order",OrderSchema);
-
-// var addOrder = function(){
-//     // var token = req.headers['authorization'];
-//     // if (!token) return res.status(401).send({ auth: false, message: 'No token provided.' });
-//     //
-//     // jwt.verify(token, config.secret, function(err, decoded) {
-//     //     if (err) return res.status(500).send({ auth: false, message: 'Failed to authenticate token.' });
-//     //
-//     //     res.status(200).send(decoded);
-//     // });
-//   return new Promise((resolve, reject)=>{
-//     user=
-//     Order.create({User:});
-//
-//   });
-// };
-//
-// var getRestaurants = function(){
-//   return new Promise((resolve, reject) => {
-//     Restaurant.find({}, function (err, restaurants){
-//       if (err){
-//         reject(err);
-//       }
-//       resolve(restaurants);
-//     })
-//   });
-// };
-//
-// var getRestaurants = function(){
-//     return new Promise((resolve, reject) => {
-//         Restaurant.find({}, function (err, restaurants){
-//         if (err){
-//             reject(err);
-//         }
-//         resolve(restaurants);
-//     })
-// });
-// };
-//
-// var getRestaurant = function(id){
-//   return new Promise((resolve, reject) => {
-//
-//     Restaurant.findOne({_id:id}).populate('recipes').exec(function (err, restaurant){
-//       if (err){
-//           reject(err);
-//       }
-//       resolve(restaurant);
-//     })
-//   });
-// };
 
 
+OrderSchema= require("../models/orderModel");
+Order = mongoose.model("Order", OrderSchema);
+
+var getOrders = function(userid){
+  return new Promise((resolve, reject) => {
+    Order.find({user:userid}, function(err, orders){
+        if (err){
+            reject(err);
+        }
+        if (orders){
+            resolve(orders);
+        }
+    });
+  });
+};
+
+var newOrder = function(userid,cart,number,total,address,phone){
+    return new Promise((resolve, reject) => {
+        //console.log(number);
+        Order.create({user:userid,cart:cart ,number:number, total:total, address: address, phone:phone},function(err, order){
+            if (err){
+                reject(err);
+            }
+            if (order){
+
+                resolve(order);
+            }
+        });
+    });
+};
 
 module.exports = {
-
+    getOrders:getOrders,
+    newOrder: newOrder
 };
 

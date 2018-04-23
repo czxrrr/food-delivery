@@ -33,38 +33,9 @@ var getRestaurant = function(id){
   });
 };
 
-var getOrders = function(userid){
-  return new Promise((resolve, reject) => {
-    Order.find({user:userid}, function(err, orders){
-        if (err){
-            reject(err);
-        }
-        if (orders){
-            resolve(orders);
-        }
-    });
-  });
-};
-
-var newOrder = function(userid,cart,number,total,address,phone){
-    return new Promise((resolve, reject) => {
-        //console.log(number);
-        Order.create({user:userid,cart:cart ,number:number, total:total, address: address, phone:phone},function(err, order){
-            if (err){
-                reject(err);
-            }
-            if (order){
-
-                resolve(order);
-            }
-        });
-    });
-};
 
 module.exports = {
     getRestaurants: getRestaurants,
     getRestaurant: getRestaurant,
-    getOrders:getOrders,
-    newOrder: newOrder
 };
 

@@ -13,11 +13,12 @@ app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
     next();
 });
+
+// router
 app.use("/api/v1", restRouter);
 
 var UserController = require('./user/UserController');
 app.use('/api/v1/auth', UserController);
-
 
 
 app.listen(3001, function(){
