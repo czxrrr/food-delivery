@@ -41,9 +41,10 @@ export class CartComponent implements OnInit {
   address;
   phone;
   order;
-  login='true';
+  login;
 
   ngOnInit() {
+    this.login=this.data.getUserstatus();
     this.cart_data=this.cart.getCartData();
   }
   clearCart(){
@@ -51,6 +52,7 @@ export class CartComponent implements OnInit {
   }
 
   checkout(){
+    console.log(this.login);
     if(this.login==='true'){
       if (this.cart_data.length===0){
         this.empty=true;

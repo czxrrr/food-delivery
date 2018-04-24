@@ -57,7 +57,12 @@ export class DataService {
 
   setUserstatus(value){
     this.user_login=value;
+    console.log(this.user_login);
     this.user_loginSource.next(this.user_login)
+  }
+
+  getUserstatus(){
+    return this.user_login;
   }
 
   getUserInfo():Observable<any>{

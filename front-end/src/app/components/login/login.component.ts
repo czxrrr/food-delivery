@@ -18,21 +18,14 @@ export class LoginComponent implements OnInit {
   login_res={};
   warning='';
   user_login='false';
-  // emailFormControl='';
 
-
-  // email = new FormControl('', [Validators.required, Validators.email]);
-  //
-  // getErrorMessage() {
-  //   return this.email.hasError('required') ? 'You must enter a value' :
-  //     this.email.hasError('email') ? 'Not a valid email' : '';
-  // }
 
 
   ngOnInit() {
   }
 
   login(){
+    // use data service to make http call
     this.data.login(this.email,this.password).subscribe(
       data => {
         this.login_res=data;
@@ -42,14 +35,17 @@ export class LoginComponent implements OnInit {
         this.cookie.set('token',data.token);
         this.data.setUserstatus('true');
         this.router.navigate(['']);
+        // login success, go to index page
 
-        error => {
-          //console.log(error);
-          this.cookie.set('user_login', 'false');
-          this.warning = "Please input correct email and password";
-        }
 
-    });
+      },
+      error => {
+        console.log(error);
+        console.log('123');
+        this.cookie.set('user_login', 'false');
+        this.warning = "Please input correct email and password";
+        // show error message when login fails
+      });
   }
 
 }
