@@ -31,7 +31,6 @@ import { OrderComponent } from './components/order/order.component';
 import { UserComponent } from './components/user/user.component';
 
 import {ReactiveFormsModule} from '@angular/forms';
-import { DetailComponent } from './components/detail/detail.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +44,6 @@ import { DetailComponent } from './components/detail/detail.component';
     CartComponent,
     OrderComponent,
     UserComponent,
-    DetailComponent
   ],
   imports: [
     FormsModule,

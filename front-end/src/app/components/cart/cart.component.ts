@@ -48,10 +48,12 @@ export class CartComponent implements OnInit {
     this.cart_data=this.cart.getCartData();
   }
   clearCart(){
+    // delete all items in cart
     this.cart.clearCart();
   }
 
   checkout(){
+    // login user can checkout
     console.log(this.login);
     if(this.login==='true'){
       if (this.cart_data.length===0){

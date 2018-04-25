@@ -26,6 +26,7 @@ export class NavBarComponent implements OnInit {
     this.token=this.cookie.get('token');
   }
   logout(){
+    // logout set user_login to 'false' and go to logout success page
       this.cookie.set('user_login','false');
       this.cookie.set('token',null);
       this.user_login=this.cookie.get('user_login');
